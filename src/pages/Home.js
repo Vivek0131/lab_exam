@@ -1,24 +1,38 @@
-// client/src/pages/Home.js  
-import React from 'react';  
-import { Link } from 'react-router-dom';  
 
-const Home = () => {  
-    return (  
-        <div>  
-            <h1>Home Page</h1>  
-            <Link to="/login">Login</Link> | <Link to="/signup">Signup</Link>  
-            <div className="carousel">  
-                <h2>Image Carousel</h2>  
-                <div className="carousel-container">  
-                    {[...Array(4)].map((_, index) => (  
-                        <div key={index} className="card">  
-                            <img src={`https://picsum.photos/200/300?random=${index}`} alt={`card ${index}`} />  
-                        </div>  
-                    ))}  
-                </div>  
-            </div>  
-        </div>  
-    );  
-}  
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+function Home() {
+    return (
+        <div>
+            {/* Navigation Links */}
+            <nav>
+                <Link to="/login">Login</Link> | <Link to="/signup">Signup</Link>
+            </nav>
+
+            {/* Welcome Message */}
+            <h2>Welcome to the Home Page</h2>
+            <p>This is a protected page accessible after login.</p>
+
+            {/* Carousel Component */}
+            <Carousel showArrows={true} autoPlay={true} infiniteLoop={true}>
+                <div>
+                    <img src="1.jpg" alt="Image 1" />
+                </div>
+                <div>
+                    <img src="2.jpg" alt="Image 2" />
+                </div>
+                <div>
+                    <img src="3.jpg" alt="Image 3" />
+                </div>
+                <div>
+                    <img src="4.jpg" alt="Image 4" />
+                </div>
+            </Carousel>
+        </div>
+    );
+}
 
 export default Home;
